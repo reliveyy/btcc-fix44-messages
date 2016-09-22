@@ -4,7 +4,7 @@
 
     <groupId>com.btcc</groupId>
     <artifactId>btcc-fix44-messages</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.1</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -14,7 +14,7 @@
 
     <scm>
         <connection>scm:git:ssh://git@github.com/reliveyy/btcc-fix44-messages.git</connection>
-      <tag>HEAD</tag>
+      <tag>v1.1</tag>
   </scm>
 
     <dependencies>
