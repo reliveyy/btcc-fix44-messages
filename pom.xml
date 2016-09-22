@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.btcc</groupId>
+    <artifactId>btcc-fix44-messages</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.quickfixj</groupId>
+            <artifactId>quickfixj-core</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.quickfixj</groupId>
+                <artifactId>quickfixj-codegenerator</artifactId>
+                <version>1.6.2</version>
+                <executions>
+                    <execution>
+                        <id>fix44-btcc</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <dictFile>${project.basedir}/src/main/resources/BTCC-FIX44.xml</dictFile>
+                            <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
+                            <decimal>true</decimal>
+                            <packaging>quickfix.btcc</packaging>
+                            <fieldPackage>quickfix.field</fieldPackage>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <url>http://nexus.btcc.com/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <url>http://nexus.btcc.com/content/repositories/releases</url>
+        </repository>
+    </distributionManagement>
+
+</project>
