@@ -3663,47 +3663,35 @@
       <field name="EncodedText" required="N" />
     </message>
     <message name="AccountInfoRequest" msgtype="U1000">
-      <field name="Account" required="Y" />
-      <field name="AccReqID" required="Y" />
-      <field name="SubscriptionAccountInfoRequestType" required="N" />
+      <field name="Account" required="Y"/>
+      <field name="AccReqID" required="Y"/>
+      <group name="NoRelatedSym" required="N">
+        <component name="Instrument" required="Y"/>
+      </group>
+      <field name="SubscriptionRequestType" required="N"/>
     </message>
     <message name="AccountInfoResponse" msgtype="U1001">
-      <field name="Account" required="Y" />
-      <field name="AccReqID" required="Y" />
-      <group name="Balance" required="Y">
-        <field name="Currency" required="Y" />
-        <field name="Amount" required="Y" />
+      <field name="AccReqID" required="Y"/>
+      <field name="RiskProfile" required="N"/>
+      <field name="Group" required="N"/>
+      <group name="NoBalances" required="N">
+        <field name="Currency" required="N"/>
+        <field name="TransferTotal" required="N"/>
+        <field name="Cash" required="N"/>
       </group>
-    </message>
-    <message name="FAccountInfoResponse" msgtype="U2001">
-      <field name="AccReqID" required="Y" />
-      <field name="UserID" required="Y" />
-      <field name="SumOfDeposit" required="Y" />
-      <field name="Cash" required="Y" />
-      <field name="TotalProfit" required="Y" />
-      <field name="TotalSize" required="Y" />
-      <field name="TotalInitMarginRequired" required="Y" />
-      <field name="TotalMaintenanceMarginRequired" required="Y" />
-      <field name="UsableMargin" required="Y" />
-      <field name="RemainEquity" required="Y" />
-      <group name="ContractList" required="Y">
-        <field name="Symbol" required="Y" />
-        <field name="TotalSellSize" required="N" />
-        <field name="TotalBuySize" required="N" />
-        <field name="OpenSize" required="Y" />
-        <field name="AvgPx" required="Y" />
-        <field name="Profit" required="Y" />
-        <field name="MarketValue" required="Y" />
-        <field name="UnchargedFee" required="Y" />
-        <field name="InitMarginRequired" required="Y" />
-        <field name="MaintenanceMarginRequired" required="Y" />
-        <field name="InitMarginFactor" required="Y" />
-        <field name="MaintenanceMarginFactor" required="Y" />
+      <group name="NoContractDetails" required="N">
+        <field name="Symbol" required="N"/>
+        <field name="TotalSellSize" required="N"/>
+        <field name="TotalBuySize" required="N"/>
+        <field name="OpenSize" required="N"/>
+        <field name="AveragePrice" required="N"/>
+        <field name="Profit" required="N"/>
+        <field name="MarketValue" required="N"/>
+        <field name="InitialMarginFactor" required="N"/>
+        <field name="LiquidationPrice" required="N"/>
+        <field name="BaseInitialMarginRequired" required="N"/>
+        <field name="QuoteInitialMarginRequired" required="N"/>
       </group>
-    </message>
-    <message name="FAccountInfoReject" msgtype="U2002">
-      <field name="AccReqID" required="Y" />
-      <field name="Text" required="Y" />
     </message>
   </messages>
   <components>
@@ -6902,8 +6890,17 @@
     <field number="8019" name="MaintenanceMarginRequired" type="AMT" />
     <field number="8020" name="InitMarginFactor" type="PERCENTAGE" />
     <field number="8021" name="MaintenanceMarginFactor" type="PERCENTAGE" />
-    <field number="9000" name="Balance" type="NUMINGROUP" />
-    <field number="9001" name="ContractList" type="NUMINGROUP" />
+    <field number="8022" name="RiskProfile" type="STRING"/>
+    <field number="8023" name="Group" type="STRING"/>
+    <field number="8024" name="TransferTotal" type="AMT"/>
+    <field number="8026" name="AveragePrice" type="AMT"/>
+    <field number="8027" name="LiquidationPrice" type="AMT"/>
+    <field number="8028" name="BaseInitialMarginRequired" type="AMT"/>
+    <field number="8029" name="QuoteInitialMarginRequired" type="AMT"/>
+    <field number="8030" name="InitialMarginFactor" type="PERCENTAGE" />
+
+    <field number="9000" name="NoBalances" type="NUMINGROUP" />
+    <field number="9001" name="NoContractDetails" type="NUMINGROUP" />
     <field number="9010" name="StartTime" type="UTCTIMESTAMP" />
     <field number="9011" name="EndTime" type="UTCTIMESTAMP" />
     <field number="9020" name="NoStatuses" type="NUMINGROUP" />
