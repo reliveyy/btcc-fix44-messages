@@ -42,7 +42,6 @@
                             <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
                             <decimal>true</decimal>
                             <packaging>quickfix.btcc</packaging>
-                            <fieldPackage>quickfix.field</fieldPackage>
                         </configuration>
                     </execution>
                 </executions>
