@@ -3681,16 +3681,8 @@
       </group>
       <group name="NoContractDetails" required="N">
         <field name="Symbol" required="N"/>
-        <field name="TotalSellSize" required="N"/>
-        <field name="TotalBuySize" required="N"/>
-        <field name="OpenSize" required="N"/>
-        <field name="AveragePrice" required="N"/>
-        <field name="Profit" required="N"/>
-        <field name="MarketValue" required="N"/>
-        <field name="InitialMarginFactor" required="N"/>
-        <field name="LiquidationPrice" required="N"/>
-        <field name="BaseInitialMarginRequired" required="N"/>
-        <field name="QuoteInitialMarginRequired" required="N"/>
+        <field name="BTCFrozen" required="N"/>
+        <field name="USDFrozen" required="N"/>
       </group>
     </message>
   </messages>
@@ -6895,9 +6887,8 @@
     <field number="8024" name="TransferTotal" type="AMT"/>
     <field number="8026" name="AveragePrice" type="AMT"/>
     <field number="8027" name="LiquidationPrice" type="AMT"/>
-    <field number="8028" name="BaseInitialMarginRequired" type="AMT"/>
-    <field number="8029" name="QuoteInitialMarginRequired" type="AMT"/>
-    <field number="8030" name="InitialMarginFactor" type="PERCENTAGE" />
+    <field number="8028" name="BTCFrozen" type="AMT"/>
+    <field number="8029" name="USDFrozen" type="AMT"/>
 
     <field number="9000" name="NoBalances" type="NUMINGROUP" />
     <field number="9001" name="NoContractDetails" type="NUMINGROUP" />
